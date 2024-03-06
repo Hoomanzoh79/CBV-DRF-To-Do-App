@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+</head>
+<body>
+    {% for task in tasks %}
+    <a href="{% url 'todo:task-detail' task.id %}"><h1>{{task.title}}</h1></a>
+    <p>author : {{task.author}}</p>
+    {% endfor %}
+</body>
+</html>
