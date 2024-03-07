@@ -14,7 +14,10 @@
     {% else %}
     <a href="{% url 'accounts:login' %}" style="text-decoration: none" >
         <button type="button"  style="background-color: #41ce7c; font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Login</button>
-        </a>
+    </a>
+    <a href="{% url 'accounts:signup' %}" style="text-decoration: none" >
+        <button type="button"  style="background-color: #41ce7c; font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Signup</button>
+    </a>
     {% endif %} 
 </body>
 </html>
