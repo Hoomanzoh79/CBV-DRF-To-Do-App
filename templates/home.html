@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Home</h1>
+    {% if user.is_authenticated %}
+    <p style="font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Hello : {{ user }}</p>
+    <a href="{% url 'accounts:logout' %}" style="text-decoration: none" ><button type="button"  style="background-color: #ff1212; font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Logout?</button></a>
+    <a href="{% url 'todo:task-list' %}"><p style="font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Task List</p></a>
+    {% else %}
+    <a href="{% url 'accounts:login' %}">Login</a>
+    {% endif %} 
+</body>
+</html>

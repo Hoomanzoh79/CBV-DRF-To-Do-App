@@ -3,6 +3,9 @@ from .models import Task
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
+class HomePageView(generic.TemplateView):
+    template_name = 'home.html'
+
 class TaskListView(LoginRequiredMixin,generic.ListView):
     template_name = 'todo/task_list.html'
     context_object_name = 'tasks'

@@ -9,6 +9,8 @@
     {% if user.is_authenticated %}
     <p style="font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Hello : {{ user }}</p>
     <a href="{% url 'accounts:logout' %}" style="text-decoration: none" ><button type="button"  style="background-color: #ff1212; font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Logout?</button></a>
+    <p style="font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Task List</p>
+    <p style="font-size:20px; color:#090809; font-weight:bold; font-style:italic;">------------------------------------------------</p>
     {% else %}
     <a href="{% url 'accounts:login' %}">Login</a>
     {% endif %} 
@@ -39,9 +41,13 @@
                 <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
             {% endif %}
         </span>
+        <p style="font-size:20px; color:#090809; font-weight:bold; font-style:italic;">------------------------------------------------</p>
     </div>
-    <a href="{% url 'todo:task-create' %}" style="text-decoration: none"><p style="font-size:30px; color:#538b01; font-weight:bold; font-style:italic;">
-        Create New Task
-      </p></a>
+    <a href="{% url 'todo:task-create' %}" style="text-decoration: none" >
+        <button type="button"  style="background-color: #41ce7c; font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Create New Task</button>
+        </a>
+      <a href="{% url 'todo:home' %}" style="text-decoration: none" >
+        <button type="button"  style="background-color: #41ce7c; font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Home</button>
+        </a>
 </body>
 </html>
