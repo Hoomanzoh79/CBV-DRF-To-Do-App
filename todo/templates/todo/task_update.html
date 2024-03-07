@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Create</title>
+    <title>Task Update</title>
 </head>
 <body>
-    <h1>Task Create</h1>
-    <form class="pt-3" method="POST" action="{% url 'todo:task-create' %}">
+    <h1>Task Update</h1>
+    <form class="pt-3" method="POST" action="{% url 'todo:task-update' task.id %}">
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="btn btn-primary" type="submit">Add</button>
+        <button class="btn btn-primary" type="submit">Update</button>
 </body>
 </html>

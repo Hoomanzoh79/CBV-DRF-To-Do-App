@@ -2,6 +2,7 @@ from django.views import generic
 from .models import Task
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from .forms import TaskUpdateForm
 
 class HomePageView(generic.TemplateView):
     template_name = 'home.html'
@@ -30,3 +31,9 @@ class TaskCreateView(LoginRequiredMixin,generic.CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super(TaskCreateView,self).form_valid(form)
+
+class TaskUpdateView(LoginRequiredMixin,generic.UpdateView):
+    model = Task
+    success_url = reverse_lazy("todo:task-list")
+    form_class = TaskUpdateForm
+    template_name = "todo/task_update.html"
