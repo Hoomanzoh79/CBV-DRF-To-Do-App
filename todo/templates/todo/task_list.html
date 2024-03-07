@@ -20,8 +20,12 @@
     <p style="font-size:18px; color:#0a0a0a; font-weight:bold; font-style:italic;">date : {{task.datetime_created}}</p>
     {% if task.is_done %}
     <p style="font-size:20px; color:#19d131; font-weight:bold; font-style:italic;">done : ✅</p>
+    <a href="{% url 'todo:task-undo' task.id %}" style="text-decoration: none" >
+        <button type="button"  style="background-color: #dd26c4; font-size:18px; color:#000000; font-weight:bold; font-style:italic;">Undo? Click Here</button>
     {% else %}
     <p style="font-size:20px; color:#ff1212; font-weight:bold; font-style:italic;">done : ❌</p>
+    <a href="{% url 'todo:task-done' task.id %}" style="text-decoration: none" >
+        <button type="button"  style="background-color: #dd26c4; font-size:18px; color:#000000; font-weight:bold; font-style:italic;">Done? Click Here</button>
     {% endif %}
     <a href="{% url 'todo:task-update' task.id %}" style="text-decoration: none" >
         <button type="button"  style="background-color: #41ce7c; font-size:18px; color:#000000; font-weight:bold; font-style:italic;">Update</button>

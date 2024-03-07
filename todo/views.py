@@ -1,8 +1,10 @@
 from django.views import generic
-from .models import Task
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
+
 from .forms import TaskUpdateForm
+from .models import Task
 
 class HomePageView(generic.TemplateView):
     template_name = 'home.html'
@@ -46,3 +48,23 @@ class TaskDeleteView(LoginRequiredMixin,generic.DeleteView):
     
     def get_queryset(self):
         return Task.objects.filter(author=self.request.user)
+
+class TaskDoneView(LoginRequiredMixin,generic.View):    
+    model = Task
+    success_url = reverse_lazy("todo:task-list")
+
+    def get(self, request, *args, **kwargs):
+        task = Task.objects.get(id=kwargs.get("pk"))
+        task.is_done = True
+        task.save()
+        return redirect(self.success_url)
+
+class TaskUndoView(LoginRequiredMixin,generic.View):
+    model = Task
+    success_url = reverse_lazy("todo:task-list")
+
+    def get(self, request, *args, **kwargs):
+        task = Task.objects.get(id=kwargs.get("pk"))
+        task.is_done = False
+        task.save()
+        return redirect(self.success_url)
