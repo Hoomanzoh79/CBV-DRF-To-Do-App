@@ -135,4 +135,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.User'
 
 # Login Redirect
-LOGIN_REDIRECT_URL ='todo:task-list'
+LOGIN_REDIRECT_URL ='todo:home'
+LOGOUT_REDIRECT_URL ='todo:home'
