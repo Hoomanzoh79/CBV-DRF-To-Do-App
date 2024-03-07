@@ -1,9 +1,10 @@
 from django.contrib.auth.admin import UserAdmin
-from .models import User
+
+from .models import User,Profile
 from django.contrib import admin
 
 @admin.register(User)
-class CustomUserAdmin(UserAdmin):
+class UserAdmin(UserAdmin):
     # form
     # add_form
     model = User
@@ -59,3 +60,9 @@ class CustomUserAdmin(UserAdmin):
             },
         ),
     )
+
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    model = Profile
+    fields = ("user","first_name","last_name")
