@@ -5,8 +5,6 @@ from django.contrib import admin
 
 @admin.register(User)
 class UserAdmin(UserAdmin):
-    # form
-    # add_form
     model = User
     list_display = (
         "email",
