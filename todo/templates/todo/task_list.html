@@ -7,13 +7,17 @@
 </head>
 <body>
     {% for task in tasks %}
-    <a href="{% url 'todo:task-detail' task.id %}"><h1>task {{ task.id }} : {{ task.title }}</h1></a>
-    <p>author : {{task.author}}</p>
+    <a href="{% url 'todo:task-detail' task.id %}" style="text-decoration: none"><h1 style="font-size:30px; color:#0888ac; font-weight:bold; font-style:italic;">task : {{ task.title }}</h1></a>
+    <p style="font-size:20px; color:#432c83; font-weight:bold; font-style:italic;">author : {{task.author}}</p>
     {% if task.is_done %}
     <p>done : ✅</p>
     {% else %}
     <p>done : ❌</p>
     {% endif %}
+    <p style="font-size:20px; color:#090809; font-weight:bold; font-style:italic;">------------------------------------------------</p>
     {% endfor %}
+    <a href="{% url 'todo:task-create' %}" style="text-decoration: none"><p style="font-size:30px; color:#538b01; font-weight:bold; font-style:italic;">
+        Create New Task
+      </p></a>
 </body>
 </html>
