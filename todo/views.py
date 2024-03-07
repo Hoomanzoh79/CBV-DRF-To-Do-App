@@ -37,3 +37,8 @@ class TaskUpdateView(LoginRequiredMixin,generic.UpdateView):
     success_url = reverse_lazy("todo:task-list")
     form_class = TaskUpdateForm
     template_name = "todo/task_update.html"
+
+class TaskDeleteView(LoginRequiredMixin,generic.DeleteView):
+    model = Task
+    success_url = reverse_lazy("todo:task-list")
+    template_name = "todo/task_delete.html"
