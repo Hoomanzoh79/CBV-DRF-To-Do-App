@@ -9,13 +9,13 @@
     {% if user.is_authenticated %}
     <p style="font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Hello : {{ user }}</p>
     <a href="{% url 'accounts:logout' %}" style="text-decoration: none" ><button type="button"  style="background-color: #ff1212; font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Logout?</button></a>
-    <p style="font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Task List</p>
+    <h1>Task List</h1>
     <p style="font-size:20px; color:#090809; font-weight:bold; font-style:italic;">------------------------------------------------</p>
     {% else %}
     <a href="{% url 'accounts:login' %}">Login</a>
     {% endif %} 
     {% for task in tasks %}
-    <a href="{% url 'todo:task-detail' task.id %}" style="text-decoration: none"><h1 style="font-size:30px; color:#0888ac; font-weight:bold; font-style:italic;">task : {{ task.title }}</h1></a>
+    <a href="{% url 'todo:task-detail' task.id %}" style="text-decoration: none"><h1 style="font-size:30px; color:#000000; font-weight:bold; font-style:italic;">task : {{ task.title }}</h1></a>
     <p style="font-size:20px; color:#7d5add; font-weight:bold; font-style:italic;">author : {{task.author}}</p>
     <p style="font-size:18px; color:#0a0a0a; font-weight:bold; font-style:italic;">date : {{task.datetime_created}}</p>
     {% if task.is_done %}
@@ -23,6 +23,9 @@
     {% else %}
     <p style="font-size:20px; color:#ff1212; font-weight:bold; font-style:italic;">done : ❌</p>
     {% endif %}
+    <a href="{% url 'todo:task-update' task.id %}" style="text-decoration: none" >
+        <button type="button"  style="background-color: #41ce7c; font-size:18px; color:#000000; font-weight:bold; font-style:italic;">Update</button>
+        </a>
     <p style="font-size:20px; color:#090809; font-weight:bold; font-style:italic;">------------------------------------------------</p>
     {% endfor %}
     <div class="pagination">
