@@ -6,9 +6,10 @@ from django.urls import reverse_lazy
 class TaskListView(LoginRequiredMixin,generic.ListView):
     template_name = 'todo/task_list.html'
     context_object_name = 'tasks'
+    paginate_by = 2
 
     def get_queryset(self):
-        return Task.objects.filter(author=self.request.user)
+        return Task.objects.filter(author=self.request.user).order_by('-datetime_created')
 
 class TaskDetailView(LoginRequiredMixin,generic.DetailView):
     template_name = 'todo/task_detail.html'
