@@ -7,8 +7,13 @@
 </head>
 <body>
     {% for task in tasks %}
-    <a href="{% url 'todo:task-detail' task.id %}"><h1>{{task.title}}</h1></a>
+    <a href="{% url 'todo:task-detail' task.id %}"><h1>task {{ task.id }} : {{ task.title }}</h1></a>
     <p>author : {{task.author}}</p>
+    {% if task.is_done %}
+    <p>done : ✅</p>
+    {% else %}
+    <p>done : ❌</p>
+    {% endif %}
     {% endfor %}
 </body>
 </html>
