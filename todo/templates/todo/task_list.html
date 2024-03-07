@@ -6,16 +6,40 @@
     <title>Task List</title>
 </head>
 <body>
+    {% if user.is_authenticated %}
+    <p style="font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Hello : {{ user }}</p>
+    <a href="{% url 'accounts:logout' %}" style="text-decoration: none" ><button type="button"  style="background-color: #ff1212; font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Logout?</button></a>
+    {% else %}
+    <a href="{% url 'accounts:login' %}">Login</a>
+    {% endif %} 
     {% for task in tasks %}
     <a href="{% url 'todo:task-detail' task.id %}" style="text-decoration: none"><h1 style="font-size:30px; color:#0888ac; font-weight:bold; font-style:italic;">task : {{ task.title }}</h1></a>
-    <p style="font-size:20px; color:#432c83; font-weight:bold; font-style:italic;">author : {{task.author}}</p>
+    <p style="font-size:20px; color:#7d5add; font-weight:bold; font-style:italic;">author : {{task.author}}</p>
+    <p style="font-size:18px; color:#0a0a0a; font-weight:bold; font-style:italic;">date : {{task.datetime_created}}</p>
     {% if task.is_done %}
-    <p>done : ✅</p>
+    <p style="font-size:20px; color:#19d131; font-weight:bold; font-style:italic;">done : ✅</p>
     {% else %}
-    <p>done : ❌</p>
+    <p style="font-size:20px; color:#ff1212; font-weight:bold; font-style:italic;">done : ❌</p>
     {% endif %}
     <p style="font-size:20px; color:#090809; font-weight:bold; font-style:italic;">------------------------------------------------</p>
     {% endfor %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
     <a href="{% url 'todo:task-create' %}" style="text-decoration: none"><p style="font-size:30px; color:#538b01; font-weight:bold; font-style:italic;">
         Create New Task
       </p></a>
