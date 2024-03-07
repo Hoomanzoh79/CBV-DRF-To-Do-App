@@ -25,7 +25,10 @@
     {% endif %}
     <a href="{% url 'todo:task-update' task.id %}" style="text-decoration: none" >
         <button type="button"  style="background-color: #41ce7c; font-size:18px; color:#000000; font-weight:bold; font-style:italic;">Update</button>
-        </a>
+    </a>
+    <a href="{% url 'todo:task-delete' task.id %}" style="text-decoration: none" >
+        <button type="button"  style="background-color: #f31414; font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Delete</button>
+    </a>
     <p style="font-size:20px; color:#090809; font-weight:bold; font-style:italic;">------------------------------------------------</p>
     {% endfor %}
     <div class="pagination">
