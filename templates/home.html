@@ -12,7 +12,9 @@
     <a href="{% url 'accounts:logout' %}" style="text-decoration: none" ><button type="button"  style="background-color: #ff1212; font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Logout?</button></a>
     <a href="{% url 'todo:task-list' %}"><p style="font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Task List</p></a>
     {% else %}
-    <a href="{% url 'accounts:login' %}">Login</a>
+    <a href="{% url 'accounts:login' %}" style="text-decoration: none" >
+        <button type="button"  style="background-color: #41ce7c; font-size:20px; color:#000000; font-weight:bold; font-style:italic;">Login</button>
+        </a>
     {% endif %} 
 </body>
 </html>
