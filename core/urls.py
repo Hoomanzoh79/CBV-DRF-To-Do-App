@@ -20,4 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/',include('accounts.urls')),
     path('todo/',include('todo.urls')),
+    # rest framework
+    path('api-auth/', include('rest_framework.urls')),
 ]
