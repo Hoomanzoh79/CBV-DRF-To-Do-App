@@ -1,8 +1,8 @@
 from django.db import models
-from django.contrib.auth import get_user_model
+from accounts.models import Profile
 
 class Task(models.Model):
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     title = models.CharField(max_length=250)
     is_done = models.BooleanField(default=False)
     
