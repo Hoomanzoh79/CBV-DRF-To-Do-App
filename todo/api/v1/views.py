@@ -8,7 +8,7 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 
 class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
-    queryset = Task.objects.filter(is_done=False)
+    queryset = Task.objects.all()
 
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_fields = {"author": ["exact", "in"]}
