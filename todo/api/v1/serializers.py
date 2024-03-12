@@ -33,7 +33,5 @@ class TaskSerializer(serializers.ModelSerializer):
         if request.parser_context["kwargs"].get("pk"):
             rep.pop("id", None)
             rep.pop("absolute_url", None)
-        else:
-            rep.pop("is_done", None)
 
         return rep
