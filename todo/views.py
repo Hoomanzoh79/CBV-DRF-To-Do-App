@@ -16,14 +16,14 @@ class TaskListView(LoginRequiredMixin,generic.ListView):
     paginate_by = 2
 
     def get_queryset(self):
-        return Task.objects.filter(author=Profile.objects.get(user_id=self.request.user.id)).order_by('-datetime_created')
+        return Task.objects.filter(author=Profile.objects.get(user_id=self.request.user.id),status=True).order_by('-datetime_created')
 
 class TaskDetailView(LoginRequiredMixin,generic.DetailView):
     template_name = 'todo/task_detail.html'
     context_object_name = 'task'
     
     def get_queryset(self):
-        return Task.objects.filter(author=Profile.objects.get(user_id=self.request.user.id))
+        return Task.objects.filter(author=Profile.objects.get(user_id=self.request.user.id),status=True)
 
 class TaskCreateView(LoginRequiredMixin,generic.CreateView):
     model = Task
