@@ -12,6 +12,7 @@ class TaskSerializer(serializers.ModelSerializer):
             "id",
             "title",
             "is_done",
+            "status",
             "author",
             "datetime_created",
             "absolute_url",
