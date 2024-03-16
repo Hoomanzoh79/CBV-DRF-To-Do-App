@@ -8,3 +8,7 @@ environs
 djangorestframework
 markdown
 django-filter
+
+# documentation
+coreapi
+drf-yasg[validation]
