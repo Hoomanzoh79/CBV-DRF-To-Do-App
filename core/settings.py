@@ -141,3 +141,15 @@ AUTH_USER_MODEL = 'accounts.User'
 # Login Redirect
 LOGIN_REDIRECT_URL ='todo:home'
 LOGOUT_REDIRECT_URL ='todo:home'
+
+
+# Rest Framework
+REST_FRAMEWORK = {
+    # Authentication
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+    ],
+    # Documentation
+    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
+}
