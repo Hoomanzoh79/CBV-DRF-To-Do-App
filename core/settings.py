@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     # rest framework
     'rest_framework',
     'django_filters',
+    
+    # documentation
+    'drf_yasg',
 
     # my apps
     'todo',
