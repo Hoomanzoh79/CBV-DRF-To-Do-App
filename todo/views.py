@@ -11,6 +11,7 @@ class HomePageView(generic.TemplateView):
     template_name = 'home.html'
 
 class TaskListView(LoginRequiredMixin,generic.ListView):
+    """gives a list of all active tasks of a user, ordered by datetime """
     template_name = 'todo/task_list.html'
     context_object_name = 'tasks'
     paginate_by = 2
@@ -19,6 +20,7 @@ class TaskListView(LoginRequiredMixin,generic.ListView):
         return Task.objects.filter(author=Profile.objects.get(user_id=self.request.user.id),status=True).order_by('-datetime_created')
 
 class TaskDetailView(LoginRequiredMixin,generic.DetailView):
+    """gives the details of an active task of a user"""
     template_name = 'todo/task_detail.html'
     context_object_name = 'task'
     
@@ -26,6 +28,7 @@ class TaskDetailView(LoginRequiredMixin,generic.DetailView):
         return Task.objects.filter(author=Profile.objects.get(user_id=self.request.user.id),status=True)
 
 class TaskCreateView(LoginRequiredMixin,generic.CreateView):
+    """creates a new task"""
     model = Task
     fields = ["title"]
     template_name = "todo/task_create.html"
@@ -36,6 +39,7 @@ class TaskCreateView(LoginRequiredMixin,generic.CreateView):
         return super(TaskCreateView,self).form_valid(form)
 
 class TaskUpdateView(LoginRequiredMixin,generic.UpdateView):
+    """changes the title of a task,only the owner of the task can use this"""
     success_url = reverse_lazy("todo:task-list")
     form_class = TaskUpdateForm
     template_name = "todo/task_update.html"
@@ -44,13 +48,15 @@ class TaskUpdateView(LoginRequiredMixin,generic.UpdateView):
         return Task.objects.filter(author=Profile.objects.get(user_id=self.request.user.id))
 
 class TaskDeleteView(LoginRequiredMixin,generic.DeleteView):
+    """deletes a task,only the owner of the task can use this"""
     success_url = reverse_lazy("todo:task-list")
     template_name = "todo/task_delete.html"
     
     def get_queryset(self):
         return Task.objects.filter(author=Profile.objects.get(user_id=self.request.user.id))
 
-class TaskDoneView(LoginRequiredMixin,generic.View):    
+class TaskDoneView(LoginRequiredMixin,generic.View):  
+    """changes task is_done field to True"""  
     model = Task
     success_url = reverse_lazy("todo:task-list")
 
@@ -61,6 +67,7 @@ class TaskDoneView(LoginRequiredMixin,generic.View):
         return redirect(self.success_url)
 
 class TaskUndoView(LoginRequiredMixin,generic.View):
+    """changes task is_done field to False""" 
     model = Task
     success_url = reverse_lazy("todo:task-list")
 
