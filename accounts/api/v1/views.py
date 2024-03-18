@@ -5,9 +5,10 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 
-from .serializers import CustomAuthTokenSerializer
+from .serializers import (CustomAuthTokenSerializer,CustomTokenObtainPairSerializer)
 
 
 class CustomAuthToken(ObtainAuthToken):
@@ -38,3 +39,9 @@ class DiscardAuthToken(APIView):
     def post(self, request):
         request.user.auth_token.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+    """For jwt login"""
+
+    serializer_class = CustomTokenObtainPairSerializer
