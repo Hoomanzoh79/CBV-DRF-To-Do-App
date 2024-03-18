@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     # rest framework
     'rest_framework',
     'django_filters',
+
+    # API Authentication
     'rest_framework.authtoken',
+    "rest_framework_simplejwt",
     
     # documentation
     'drf_yasg',
@@ -155,6 +158,8 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         # token authentication
         "rest_framework.authentication.TokenAuthentication",
+        # jwt authentication
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
     # Documentation
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
