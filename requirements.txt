@@ -8,6 +8,7 @@ environs
 djangorestframework
 markdown
 django-filter
+djangorestframework-simplejwt
 
 # documentation
 coreapi
