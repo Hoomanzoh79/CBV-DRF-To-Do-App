@@ -13,3 +13,4 @@ djangorestframework-simplejwt
 # documentation
 coreapi
 drf-yasg[validation]
+drf-spectacular
