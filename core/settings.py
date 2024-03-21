@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     
     # documentation
     'drf_yasg',
+    'drf_spectacular',
 
     # my apps
     'todo',
@@ -162,5 +163,14 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
     # Documentation
-    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+# drf spectacular settings
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'To Do App Api',
+    'DESCRIPTION': 'CBV To Do App using django rest framework',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
 }
