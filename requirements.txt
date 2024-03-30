@@ -14,3 +14,7 @@ djangorestframework-simplejwt
 coreapi
 drf-yasg[validation]
 drf-spectacular
+
+# reformat and lint
+flake8
+black
