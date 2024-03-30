@@ -7,7 +7,6 @@ from .serializers import TaskSerializer
 from todo.models import Task
 from .paginations import DefaultPagination
 from .permissions import IsOwnerPermission
-from accounts.models import Profile
 
 
 class TaskViewSet(viewsets.ModelViewSet):
