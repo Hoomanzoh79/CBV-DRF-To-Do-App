@@ -18,3 +18,7 @@ drf-spectacular
 # reformat and lint
 flake8
 black
+
+# tests
+pytest
+pytest-django
