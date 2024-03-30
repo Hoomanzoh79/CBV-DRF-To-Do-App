@@ -8,11 +8,12 @@ from rest_framework import status
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 
-from .serializers import (CustomAuthTokenSerializer,CustomTokenObtainPairSerializer)
+from .serializers import CustomAuthTokenSerializer, CustomTokenObtainPairSerializer
 
 
 class CustomAuthToken(ObtainAuthToken):
     """For token login"""
+
     serializer_class = CustomAuthTokenSerializer
 
     def post(self, request, *args, **kwargs):

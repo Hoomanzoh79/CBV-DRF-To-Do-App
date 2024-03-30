@@ -6,7 +6,7 @@ class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="profile")
     first_name = models.CharField(max_length=250)
     last_name = models.CharField(max_length=250)
-   
+
     bio = models.TextField()
 
     created_date = models.DateTimeField(auto_now_add=True)

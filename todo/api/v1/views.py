@@ -9,6 +9,7 @@ from .paginations import DefaultPagination
 from .permissions import IsOwnerPermission
 from accounts.models import Profile
 
+
 class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
     queryset = Task.objects.filter(status=True)
@@ -18,4 +19,4 @@ class TaskViewSet(viewsets.ModelViewSet):
     search_fields = ["title"]
     ordering_fields = ["datetime_created"]
     pagination_class = DefaultPagination
-    permission_classes = [IsAuthenticatedOrReadOnly,IsOwnerPermission]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerPermission]

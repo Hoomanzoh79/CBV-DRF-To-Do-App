@@ -36,6 +36,7 @@ class CustomAuthTokenSerializer(serializers.Serializer):
         attrs["user"] = user
         return attrs
 
+
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         validate_data = super().validate(attrs)

@@ -1,7 +1,8 @@
 from django.contrib.auth.admin import UserAdmin
 
-from .models import User,Profile
+from .models import User, Profile
 from django.contrib import admin
+
 
 @admin.register(User)
 class UserAdmin(UserAdmin):
@@ -53,7 +54,6 @@ class UserAdmin(UserAdmin):
                     "is_staff",
                     "is_active",
                     "is_superuser",
-        
                 ),
             },
         ),
@@ -63,4 +63,4 @@ class UserAdmin(UserAdmin):
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     model = Profile
-    fields = ("user","first_name","last_name")
+    fields = ("user", "first_name", "last_name")

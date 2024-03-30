@@ -1,6 +1,6 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from .models import User,Profile
+from .models import User, Profile
 
 
 # Signal for saving profile after saving a User instance
