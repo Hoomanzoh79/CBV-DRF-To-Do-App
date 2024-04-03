@@ -9,4 +9,5 @@ exclude =
     .venv,
     .env,
     settings.py,
+    apps.py,
     __init__.py,
