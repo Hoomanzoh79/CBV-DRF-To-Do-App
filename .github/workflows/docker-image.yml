@@ -1,0 +1,19 @@
+name: To Do App Project Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  Test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Docker-Compose
+      run: docker-compose up -d
+    - name: Run Tests
+      run: docker compose exec backend2 sh -c "flake8 && pytest ."
