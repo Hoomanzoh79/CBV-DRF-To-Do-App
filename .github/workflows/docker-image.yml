@@ -8,13 +8,13 @@ on:
 
 jobs:
 
-  build:
+  build:  
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  
     
     steps:
     - uses: actions/checkout@v3
     - name: Setup Docker-Compose
       run: docker-compose up -d
     - name: Run Tests
-      run: docker compose exec backend2 sh -c "flake8 && pytest ."
+      run: docker exec backend2 sh -c "flake8 && pytest ." 
