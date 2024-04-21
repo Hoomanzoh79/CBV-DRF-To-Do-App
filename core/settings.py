@@ -167,3 +167,7 @@ SPECTACULAR_SETTINGS = {
     "SERVE_INCLUDE_SCHEMA": False,
     # OTHER SETTINGS
 }
+
+
+# celery configs
+CELERY_BROKER_URL = 'redis://redis:6379/1'
