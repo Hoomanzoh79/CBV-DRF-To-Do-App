@@ -24,3 +24,8 @@ black
 # tests
 pytest
 pytest-django
+
+
+# background process and cache
+celery
+redis
