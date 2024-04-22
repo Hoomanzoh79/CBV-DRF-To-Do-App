@@ -2,10 +2,13 @@ from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
+import time
+from django.http import HttpResponse
 
 from .forms import TaskUpdateForm
 from .models import Task
 from accounts.models import Profile
+from .tasks import sendEmail
 
 
 class HomePageView(generic.TemplateView):
@@ -99,3 +102,8 @@ class TaskUndoView(LoginRequiredMixin, generic.View):
         task.is_done = False
         task.save()
         return redirect(self.success_url)
+
+# use celery task
+def send_email(request):
+    sendEmail.delay()
+    return HttpResponse("<h1>done sending email</h1>")

@@ -14,4 +14,6 @@ urlpatterns = [
     path("create/", views.TaskCreateView.as_view(), name="task-create"),
     # API
     path("api/v1/", include("todo.api.v1.urls")),
+    # urls using celery tasks
+    path("send-email/",views.send_email,name="send-email")
 ]
