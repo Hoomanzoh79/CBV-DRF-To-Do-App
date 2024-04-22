@@ -12,7 +12,7 @@ services:
   backend2:
     build: .
     container_name: backend2
-    command: python /code/manage.py runserver 0.0.0.0:8000
+    command: python /code/manage.py runserver 0.0.0.0:8000 
     volumes:
       - .:/code
     ports:
