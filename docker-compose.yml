@@ -4,6 +4,7 @@ services:
   redis:
     container_name: redis2
     image: redis
+    restart : always
     ports:
     -  "6379:6379"
     command: redis-server --save 60 1 --loglevel warning
@@ -19,3 +20,12 @@ services:
     environment:
        - "DJANGO_SECRET_KEY=${DOCKER_COMPOSE_DJANGO_SECRET_KEY}"
        - "DJANGO_DEBUG=${DOCKER_COMPOSE_DJANGO_DEBUG}"
+    depends_on:
+      - redis
+    
+  worker:
+    build: .
+    command: celery -A core worker --loglevel=info
+    depends_on:
+      - redis
+      - backend2
