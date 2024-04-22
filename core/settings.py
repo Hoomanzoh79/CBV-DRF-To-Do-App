@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     # my apps
     "todo",
     "accounts",
+    # celery beat schedule
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
