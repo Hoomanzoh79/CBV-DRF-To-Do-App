@@ -104,6 +104,6 @@ class TaskUndoView(LoginRequiredMixin, generic.View):
         return redirect(self.success_url)
 
 # use celery task
-def send_email(request):
-    sendEmail.delay()
-    return HttpResponse("<h1>done sending email</h1>")
+# def send_email(request):
+#     sendEmail.delay()
+#     return HttpResponse("<h1>done sending email</h1>")
