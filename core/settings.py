@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     # my apps
     "todo",
     "accounts",
+    "weather",
     # celery beat schedule
     'django_celery_beat',
 ]
