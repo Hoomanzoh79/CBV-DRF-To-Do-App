@@ -27,7 +27,7 @@ services:
     build: .
     command: celery -A core worker --loglevel=info
     volumes:
-      - ./core:/app
+      - .:/code
     depends_on:
       - redis
       - backend2
