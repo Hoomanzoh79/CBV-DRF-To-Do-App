@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  redis:
+    container_name: redis2
+    image: redis
+    restart : always
+    ports:
+    -  "6379:6379"
+    command: redis-server --save 60 1 --loglevel warning
+
+  backend2:
+    build: .
+    container_name: backend2
+    command: gunicorn core.wsgi --bind 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    environment:
+       - DJANGO_SECRET_KEY=test
+       - DJANGO_DEBUG=False
+    depends_on:
+      - redis
+    
+  worker:
+    build: .
+    command: celery -A core worker --loglevel=info
+    volumes:
+      - .:/code
+    depends_on:
+      - redis
+      - backend2
