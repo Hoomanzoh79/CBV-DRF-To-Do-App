@@ -29,5 +29,7 @@ pytest-django
 # background process and cache
 celery
 redis
-django-celery-beat
 django-redis
+
+# deployment 
+gunicorn
