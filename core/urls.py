@@ -26,7 +26,7 @@ from drf_spectacular.views import (
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("accounts.urls")),
-    path("todo/", include("todo.urls")),
+    path("", include("todo.urls")),
     path("weather/",include("weather.urls")),
     # rest framework
     path("api-auth/", include("rest_framework.urls")),
