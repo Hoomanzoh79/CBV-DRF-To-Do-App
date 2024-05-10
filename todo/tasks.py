@@ -8,6 +8,7 @@ from todo.models import Task
 #     sleep(3)
 #     print("tasks deleted")
 
+
 @shared_task
 def deleteTask():
     sleep(5)

@@ -27,7 +27,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("accounts.urls")),
     path("", include("todo.urls")),
-    path("weather/",include("weather.urls")),
+    path("weather/", include("weather.urls")),
     # rest framework
     path("api-auth/", include("rest_framework.urls")),
     # API SCHEMA

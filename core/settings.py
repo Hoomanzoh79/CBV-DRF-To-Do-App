@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     "accounts",
     "weather",
     # celery beat schedule
-    'django_celery_beat',
+    "django_celery_beat",
 ]
 
 MIDDLEWARE = [
@@ -186,7 +186,7 @@ SPECTACULAR_SETTINGS = {
 
 
 # celery configs
-CELERY_BROKER_URL = 'redis://redis:6379/1'
+CELERY_BROKER_URL = "redis://redis:6379/1"
 
 # caching configs
 CACHES = {
