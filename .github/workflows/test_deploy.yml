@@ -6,17 +6,13 @@ on:
   pull_request:
     branches: [ main ]
 
-runs:
-  using: 'node20'
-  main: 'main.js'
-
 jobs:
 
   Test:
     name: Test
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Setup Docker-Compose
       run: docker-compose up -d
     - name: Run Tests
@@ -28,7 +24,7 @@ jobs:
     needs: Test
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Connect and Execute Commands
       uses: appleboy/ssh-action@master
       with:
