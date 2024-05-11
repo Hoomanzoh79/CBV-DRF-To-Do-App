@@ -33,7 +33,7 @@ jobs:
         host: ${{secrets.HOST}}
         port: ${{secrets.PORT}}
         script: |
-          cd CBV-DRF-To-Do-App
+          cd ${{secrets.PATH}}
           docker-compose -f docker-compose-stage.yml stop
           git pull
           docker-compose -f docker-compose-stage.yml restart
